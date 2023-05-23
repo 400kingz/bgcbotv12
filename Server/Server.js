@@ -14,16 +14,17 @@ app.use(cors());
 
 mongoose.connect(uri, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-}).then(() => {
+    useUnifiedTopology: true
+})
+.then(() => {
     console.log('Connected to MongoDB');
 
     app.use(routes);
 
     app.listen(port, () => console.log(`Listening on port ${port}`));
-}).catch(err => {
+})
+.catch(err => {
     console.error('Failed to connect to MongoDB', err);
     process.exit(1); // Exit process with failure
 });
+
